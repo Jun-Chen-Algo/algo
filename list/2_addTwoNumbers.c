@@ -11,7 +11,7 @@
 原因：342 + 465 = 807
 */
 
-/*这个算法不断开辟内存消耗大量时间，虽然通过了，需要修改*/
+/*这个算法不断开辟内存消耗大量时间，虽然通过了，需要修改 @2019/11/7*/
   struct ListNode {
       int val;
       struct ListNode *next;
@@ -23,7 +23,7 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2)
 	struct ListNode *p1, *p2;
 	struct ListNode *rlHead = NULL;
 	struct ListNode *ptmp = NULL;
-    struct ListNode *ptail = NULL;
+	struct ListNode *ptail = NULL;
 	int bit = 0;
 	
 	p1 = l1;
@@ -33,11 +33,10 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2)
 		ptmp = (struct ListNode *)malloc(sizeof(struct ListNode));
 		ptmp->val = (p1?p1->val:0)+(p2?p2->val:0);
 		ptmp->val = (bit == 1)?(ptmp->val+1):ptmp->val;
-        //printf("1:%d\n", ptmp->val);
 		bit = (ptmp->val>=10)?1:0;
 		ptmp->val= (ptmp->val>=10)?(ptmp->val-10):ptmp->val;
-        printf("%d\n", ptmp->val);
-        ptmp->next = NULL;
+		printf("%d\n", ptmp->val);
+		ptmp->next = NULL;
 		if (rlHead == NULL){
 			rlHead = ptmp;
 			ptail = ptmp;
@@ -45,15 +44,15 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2)
 			ptail->next = ptmp;
 			ptail = ptmp;
 		}
-        p1 = (p1 != NULL)?(p1->next):NULL;
+		p1 = (p1 != NULL)?(p1->next):NULL;
 		p2 = (p2 != NULL)?(p2->next):NULL;
         
 	}
 	if (bit == 1){
 		ptmp = (struct ListNode *)malloc(sizeof(struct ListNode));
 		ptmp->val= 1;
-        ptmp->next = NULL;
-        ptail->next = ptmp;
+		ptmp->next = NULL;
+		ptail->next = ptmp;
 	 
 	}
         
