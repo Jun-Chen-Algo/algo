@@ -17,11 +17,11 @@
 			负值最大 INT_MIN = -2147483648
 			正值最大 INT_MAX = 2147483647
 */
-/*更新一个评论区的大神代码*/
+/*更新一个评论区的大神代码，不过这里严格要求rs long大小>int，32位机器是过不了所有测试项的，最好是long long */
 int reverse(int x)
 {
     int max = 0x7fffffff, min = 0x80000000;//int的最大值最小值
-    long rs = 0;//用long类型判断溢出
+    long long rs = 0;//用long类型判断溢出
     for(;x;x/=10){//逆序，正负通吃，不用单独考虑负值{
 		rs = rs*10+x%10;
 	}
