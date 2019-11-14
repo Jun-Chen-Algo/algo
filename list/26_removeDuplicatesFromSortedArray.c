@@ -18,17 +18,17 @@
 int removeDuplicates(int* nums, int numsSize)
 {
 	int i, j = 0;//i是快指针，j是慢指针
-	int now = nums[0];
+	int guard = nums[0];//哨兵
 	
     if (numsSize == 0)
         return 0;
 	for (i = 0; i<numsSize; i++){
-		if (nums[i] == now){
+		if (nums[i] == guard){
 			continue;	
 		}else{
 			j++;
 			nums[j] = nums[i];
-			now = nums[i];
+			guard = nums[i];
 		}
 	}
 	return j+1;
