@@ -27,7 +27,7 @@ char * longestCommonPrefix(char ** strs, int strsSize)
 	char tmp = 0;
 	static char rs[1000] = {0};
 	
-    memset(rs, 0, 1000);
+	memset(rs, 0, 1000);
 	if (strsSize == 0){
 		return "";
 	}
